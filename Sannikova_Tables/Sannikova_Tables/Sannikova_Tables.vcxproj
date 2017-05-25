@@ -150,8 +150,11 @@
     <ClInclude Include="Table.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AVL.cpp" />
+    <ClCompile Include="AVLStructure.cpp" />
     <ClCompile Include="BST.cpp" />
     <ClCompile Include="HashTable.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="TableNode.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

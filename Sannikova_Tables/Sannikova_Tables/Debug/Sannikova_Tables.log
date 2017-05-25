@@ -1,3 +1,3 @@
-﻿  BST.cpp
-MSVCRTD.lib(exe_main.obj) : error LNK2019: ссылка на неразрешенный внешний символ _main в функции "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-C:\Users\Виктория\Documents\Visual Studio 2015\Projects\Sannikova_Tables\Sannikova_Tables\Debug\Sannikova_Tables.exe : fatal error LNK1120: неразрешенных внешних элементов: 1
+﻿  main.cpp
+  Sannikova_Tables.vcxproj -> C:\Users\Виктория\Documents\Visual Studio 2015\Projects\Sannikova_Tables\Sannikova_Tables\Debug\Sannikova_Tables.exe
+  Sannikova_Tables.vcxproj -> C:\Users\Виктория\Documents\Visual Studio 2015\Projects\Sannikova_Tables\Sannikova_Tables\Debug\Sannikova_Tables.pdb (Full PDB)

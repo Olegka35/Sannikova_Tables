@@ -88,7 +88,7 @@ private:
 
 	void Delete(BSTNode* r, string key);
 
-	//BSTNode* Merge(BSTNode* l, BSTNode* r);
+	BSTNode* Merge(BSTNode* l, BSTNode* r);
 public:
 	BST();
 	BST(TableNode* data);
@@ -101,16 +101,39 @@ public:
 
 };
 
+class AVLNode 
+{
+private:
+	TableNode* data;
+	AVLNode* left;
+	AVLNode* right; //дерево сбалансировано, если у каждой вершины дисбаланс в отрезке(-1,1)
+	int disbalance; //+1 если правое поддерево больше, -1 если левое поддерево больше, 0 если одинаково
+public:
+	AVLNode(TableNode* d);
+	AVLNode();
+	AVLNode(AVLNode &obj);
+
+	AVLNode* GetLeft() const;
+	AVLNode* GetRight() const;
+
+	void SetData(TableNode* d);
+	void SetLeft(AVLNode* l);
+	void SetRight(AVLNode* r);
+
+	string GetName() const;
+	TableNode* GetData() ;
+};
+
 class AVL
 {
 private:
-	BSTNode* root;
-	BSTNode* Search(BSTNode* r, string* key);
-	BSTNode* FindMax(BSTNode* r);
-	BSTNode* FindMin(BSTNode* t);
-	void Insert(BSTNode*r, BSTNode* new_node);
-	void Delete(BSTNode* r, string key);
-	BSTNode* Merge(BSTNode* l, BSTNode *r);
+	AVLNode* root;
+	AVLNode* Search(AVLNode* r, string key);
+	AVLNode* FindMax(AVLNode* r);
+	AVLNode* FindMin(AVLNode* t);
+	void Insert(AVLNode*r, AVLNode* new_node);
+	void Delete(AVLNode* r, string key);
+	AVLNode* Merge(AVLNode* l, AVLNode *r);
 public:
 	AVL();
 	AVL(TableNode* data);
