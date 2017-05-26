@@ -92,7 +92,6 @@ void BST::Insert(TableNode* node)
 		root->SetData(node);
 		return;
 	}
-
 	BSTNode* tmp = new BSTNode(node);
 	Insert(root, tmp);
 }
@@ -115,27 +114,34 @@ void BST::Delete(string key)
 	Delete(root, key);
 }
 
-BSTNode* BST::Search(BSTNode* r, string key) {
+BSTNode* BST::Search(BSTNode* r, string key) 
+{
 	if (r == NULL || r->GetData() == NULL) return NULL;
 
-	if (key == r->GetName()) {
+	if (key == r->GetName()) 
+	{
 		return r;
 	}
-	if (key < r->GetName()) {
+	if (key < r->GetName()) 
+	{
 		return Search(r->GetLeft(), key);
 	}
 	return Search(r->GetRight(), key);
 }
 
-BSTNode* BST::FindMax(BSTNode* r) {
-	if (r->GetRight() == NULL) {
+BSTNode* BST::FindMax(BSTNode* r) 
+{
+	if (r->GetRight() == NULL) 
+	{
 		return r;
 	}
 	return FindMax(r->GetRight());
 }
 
-BSTNode* BST::FindMin(BSTNode* r) {
-	if (r->GetLeft() == NULL) {
+BSTNode* BST::FindMin(BSTNode* r) 
+{
+	if (r->GetLeft() == NULL) 
+	{
 		return r;
 	}
 	return FindMin(r->GetLeft());
@@ -165,7 +171,8 @@ BSTNode* BST::FindMin(BSTNode* r) {
 //	return res;
 //}
 
-void BST::Insert(BSTNode* r, BSTNode* new_node) {
+void BST::Insert(BSTNode* r, BSTNode* new_node) 
+{
 	if (new_node->GetName() > r->GetName()) {
 		if (r->GetRight() != NULL) {
 			Insert(r->GetRight(), new_node);

@@ -107,6 +107,7 @@ private:
 	TableNode* data;
 	AVLNode* left;
 	AVLNode* right; //дерево сбалансировано, если у каждой вершины дисбаланс в отрезке(-1,1)
+	int height;
 	int disbalance; //+1 если правое поддерево больше, -1 если левое поддерево больше, 0 если одинаково
 public:
 	AVLNode(TableNode* d);
@@ -119,7 +120,8 @@ public:
 	void SetData(TableNode* d);
 	void SetLeft(AVLNode* l);
 	void SetRight(AVLNode* r);
-
+	void SetHeight(int height);
+	int GetHeight();
 	string GetName() const;
 	TableNode* GetData() ;
 };
@@ -127,13 +129,22 @@ public:
 class AVL
 {
 private:
+
 	AVLNode* root;
+	int BFactor(AVLNode* node);
+	void FixHeight(AVLNode* r);
+	AVLNode* RotateRight(AVLNode* r);
+	AVLNode* RotateLeft(AVLNode* r);
+	AVLNode* Balance(AVLNode* r);
+	void Insert(AVLNode*r, AVLNode* new_node); //возможна бага
+
+	AVLNode* FindMin(AVLNode* t);
+	AVLNode* RemoveMin(AVLNode* p);
+	AVLNode* Delete(AVLNode* r, string key);
+
 	AVLNode* Search(AVLNode* r, string key);
 	AVLNode* FindMax(AVLNode* r);
-	AVLNode* FindMin(AVLNode* t);
-	void Insert(AVLNode*r, AVLNode* new_node);
-	void Delete(AVLNode* r, string key);
-	AVLNode* Merge(AVLNode* l, AVLNode *r);
+
 public:
 	AVL();
 	AVL(TableNode* data);
