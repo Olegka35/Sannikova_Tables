@@ -32,7 +32,6 @@ public:
 	virtual int GetNode(string key) = 0;
 };
 
-
 class HashTable : public Table
 {
 private:
@@ -40,10 +39,10 @@ private:
 	int max_size;   // максимальная длина списка указтелей
 
 	int hashfunc(string s);
-	int Find(string key) { return 0; };
+	int Find(string key) 
+	{ return 0;};
 public:
 	HashTable();
-
 	void Insert(string key, int p);
 	void Delete(string key);
 	int GetNode(string key);
@@ -52,52 +51,52 @@ public:
 class BSTNode
 {
 private:
-	TableNode* data;
-	BSTNode* left;
-	BSTNode* right;
+	TableNode* data;  //указатель на данные 
+	BSTNode* left;    //указатель на левый узел
+	BSTNode* right;   //указатель на правый узел
 public:
-	BSTNode(TableNode* d);
+	BSTNode(TableNode* d);  //конструктор 
 	BSTNode();
-	BSTNode(BSTNode &obj);
+	BSTNode(BSTNode &obj); //конструктор копирования
 
-	BSTNode* GetLeft() const;
-	BSTNode* GetRight() const;
+	BSTNode* GetLeft() const;  //достать левый потомок
+	BSTNode* GetRight() const;  //достать правый потомок
 
-	void SetData(TableNode* d);
-	void SetLeft(BSTNode* l);
-	void SetRight(BSTNode* r);
+	void SetData(TableNode* d); //установить данные в узел
+	void SetLeft(BSTNode* l);  //установить данные в правый узел
+	void SetRight(BSTNode* r);  //установить правый узел
 
-	string GetName() const;
-	TableNode* GetData();
+	string  GetName() const;   //достать имя НЕ ИМЯ А КОЛИЧЕСТВО 
+	TableNode* GetData();     //достать данные
 };
 
 class BST
 {
 private:
-	BSTNode* root;
+	BSTNode* root;   //корень
 
-	BSTNode* Search(BSTNode* r, string key);
+	BSTNode* Search(BSTNode* r, string key);   //поиск в дереве с корнем по ключу
 
-	BSTNode* FindMax(BSTNode* r);
-	BSTNode* FindMin(BSTNode* r);
+	BSTNode* FindMax(BSTNode* r);   //найти максимум
+	BSTNode* FindMin(BSTNode* r);   //найти минимум
 
 	/*BinarySearchTree_Element* FindNext(BinarySearchTree_Element* r);
 	BinarySearchTree_Element* FindPrevious(BinarySearchTree_Element* r);*/
 
-	void Insert(BSTNode* r, BSTNode* new_node);
+	void Insert(BSTNode* r, BSTNode* new_node);  //вставка в дерево с коренем элемент
 
-	void Delete(BSTNode* r, string key);
+	void Delete(BSTNode* r, string key);   //удалить из дерева с корнем элемент
 
-	BSTNode* Merge(BSTNode* l, BSTNode* r);
+	BSTNode* Merge(BSTNode* l, BSTNode* r);   //слияние двух узлов
 public:
-	BST();
-	BST(TableNode* data);
+	BST();    //конструктор
+	BST(TableNode* data);  //конструктор
 	/*void TLRwalk(BinarySearchTree_Element* r);
 	void LTRwalk(BinarySearchTree_Element* r);*/
 
-	void Insert(TableNode* node);
-	void Delete(string key);
-	TableNode* Search(string key);
+	void Insert(TableNode* node);  //вставка узла
+	void Delete(string key);       //удаление узла
+	TableNode* Search(string key);   //поиск узла по ключу
 
 };
 
@@ -136,14 +135,14 @@ private:
 	AVLNode* RotateRight(AVLNode* r);
 	AVLNode* RotateLeft(AVLNode* r);
 	AVLNode* Balance(AVLNode* r);
-	void Insert(AVLNode*r, AVLNode* new_node); //возможна бага
-
+	AVLNode* Insert(AVLNode*r, AVLNode* new_node); //возможна бага
+	AVLNode* Search(AVLNode* r, string key);   //поиск в дереве с корнем по ключу
 	AVLNode* FindMin(AVLNode* t);
 	AVLNode* RemoveMin(AVLNode* p);
 	AVLNode* Delete(AVLNode* r, string key);
 
-	AVLNode* Search(AVLNode* r, string key);
-	AVLNode* FindMax(AVLNode* r);
+//	AVLNode* Search(AVLNode* r, string key);
+	//AVLNode* FindMax(AVLNode* r);
 
 public:
 	AVL();

@@ -2,69 +2,71 @@
 #include <iostream>
 
 
-BSTNode::BSTNode(TableNode* d) 
+BSTNode::BSTNode(TableNode* d)  //конструктор для узла
 {
 	data = d;
 	left = NULL;
 	right = NULL;
 }
 
-BSTNode::BSTNode() 
+BSTNode::BSTNode()  //конструктор для узла
 {
 	data = NULL;
 	left = NULL;
 	right = NULL;
 }
 
-BSTNode::BSTNode(BSTNode& obj) 
+BSTNode::BSTNode(BSTNode& obj)    //конструктор копирования
 {
 	data = obj.GetData();
 	left = obj.GetLeft();
 	right = obj.GetRight();
 }
 
-BSTNode* BSTNode::GetLeft() const 
+BSTNode* BSTNode::GetLeft() const   //достать левый элемент узла
 {
 	return left;
 }
 
-BSTNode* BSTNode::GetRight() const 
+BSTNode* BSTNode::GetRight() const   //достать правый элемент узла
 {
 	return right;
 }
 
 
-void BSTNode::SetData(TableNode* d) 
+void BSTNode::SetData(TableNode* d)   //заполнить данные узла
 {
 	data = d;
 }
 
 
-void BSTNode::SetLeft(BSTNode* l) 
+void BSTNode::SetLeft(BSTNode* l)   //установить левый потомок
 {
 	left = l;
 }
 
-void BSTNode::SetRight(BSTNode* r) 
+void BSTNode::SetRight(BSTNode* r) //установить правый потомок
 {
 	right = r;
 }
 
-string BSTNode::GetName() const 
+string BSTNode::GetName() const   //достать имя 
 {
-	return data->GetKey();
+	return data->GetKey(); //нам нужно упорядочить по количеству, поэтому у нас здесь будет доставаться не имя, а count
 }
 
-TableNode* BSTNode::GetData() 
+TableNode* BSTNode::GetData()   //достать данные
 {
 	return data;
 }
 
-BST::BST() {
+BST::BST()  //конструктор
+{
 	root = new BSTNode;
 }
 
-BST::BST(TableNode* data) {
+BST::BST(TableNode* data)  //
+{
 	root = new BSTNode;
 	root->SetData(data);
 }
@@ -85,7 +87,7 @@ BST::BST(TableNode* data) {
 //	}
 //}
 
-void BST::Insert(TableNode* node)
+void BST::Insert(TableNode* node) //вставка узла (обертка)
 {
 	if (root->GetData() == NULL)
 	{
@@ -96,7 +98,7 @@ void BST::Insert(TableNode* node)
 	Insert(root, tmp);
 }
 
-void BST::Delete(string key)
+void BST::Delete(string key) //удаление узла(обертка)
 {
 	if (root->GetData() == NULL) {
 		return;
@@ -114,7 +116,7 @@ void BST::Delete(string key)
 	Delete(root, key);
 }
 
-BSTNode* BST::Search(BSTNode* r, string key) 
+BSTNode* BST::Search(BSTNode* r, string key)  //поиск в дереве с корнем по узлу
 {
 	if (r == NULL || r->GetData() == NULL) return NULL;
 
@@ -129,7 +131,7 @@ BSTNode* BST::Search(BSTNode* r, string key)
 	return Search(r->GetRight(), key);
 }
 
-BSTNode* BST::FindMax(BSTNode* r) 
+BSTNode* BST::FindMax(BSTNode* r)  //поиск максимума в дереве
 {
 	if (r->GetRight() == NULL) 
 	{
@@ -138,7 +140,7 @@ BSTNode* BST::FindMax(BSTNode* r)
 	return FindMax(r->GetRight());
 }
 
-BSTNode* BST::FindMin(BSTNode* r) 
+BSTNode* BST::FindMin(BSTNode* r)  //поиск минимума в дереве
 {
 	if (r->GetLeft() == NULL) 
 	{
@@ -171,7 +173,7 @@ BSTNode* BST::FindMin(BSTNode* r)
 //	return res;
 //}
 
-void BST::Insert(BSTNode* r, BSTNode* new_node) 
+void BST::Insert(BSTNode* r, BSTNode* new_node)  //вставка в дерево с корнем узел
 {
 	if (new_node->GetName() > r->GetName()) {
 		if (r->GetRight() != NULL) {
@@ -193,7 +195,8 @@ void BST::Insert(BSTNode* r, BSTNode* new_node)
 	}
 }
 
-TableNode* BST::Search(string key) {
+TableNode* BST::Search(string key)  //обертка для поиска
+{
 	BSTNode* res = Search(root, key);
 	if (res == NULL)
 	{
@@ -202,7 +205,8 @@ TableNode* BST::Search(string key) {
 	return res->GetData();
 }
 
-BSTNode* BST::Merge(BSTNode* l, BSTNode* r) {
+BSTNode* BST::Merge(BSTNode* l, BSTNode* r) //слияние двух узлов
+{
 	if (r == NULL || r->GetData() == NULL)
 	{
 		return l;
@@ -214,7 +218,8 @@ BSTNode* BST::Merge(BSTNode* l, BSTNode* r) {
 	return r;
 }
 
-void BST::Delete(BSTNode* r, string key) {
+void BST::Delete(BSTNode* r, string key)  //удаление узла в дереве с корнем
+{
 
 	if (key < r->GetName()) {
 		if (r->GetLeft()->GetName() == key)

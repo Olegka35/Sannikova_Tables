@@ -39,7 +39,7 @@ int HashTable::hashfunc(string s)
 	int hash = 0;
 	for (int i = 0; i < s.size(); i++)
 	{
-		hash += s[i];
+		hash += s[i]; //10^i
 	}
 	return hash%max_size;
 }
