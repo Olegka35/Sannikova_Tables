@@ -1,11 +1,5 @@
-﻿  HashTable.cpp
-c:\users\виктория\documents\visual studio 2015\projects\sannikova_tables\sannikova_tables\sannikova_tables\hashtable.cpp(40): warning C4018: <: несоответствие типов со знаком и без знака
-  BST.cpp
-  AVLStructure.cpp
-  AVL.cpp
-  Создание кода...
-c:\users\виктория\documents\visual studio 2015\projects\sannikova_tables\sannikova_tables\sannikova_tables\avl.cpp(187): warning C4717: AVL::Insert: рекурсия на всех путях выполнения, функция вызовет переполнение стека
-  Пропуск... (изменения не обнаружены)
-  TableNode.cpp
-  Sannikova_Tables.vcxproj -> C:\Users\Виктория\Documents\Visual Studio 2015\Projects\Sannikova_Tables\Sannikova_Tables\Debug\Sannikova_Tables.exe
-  Sannikova_Tables.vcxproj -> C:\Users\Виктория\Documents\Visual Studio 2015\Projects\Sannikova_Tables\Sannikova_Tables\Debug\Sannikova_Tables.pdb (Full PDB)
+﻿  main.cpp
+i:\oleg\programmingtools\sannikova_tables\sannikova_tables\sannikova_tables\main.cpp(38): warning C4244: аргумент: преобразование "wint_t" в "char", возможна потеря данных
+i:\oleg\programmingtools\sannikova_tables\sannikova_tables\sannikova_tables\main.cpp(42): warning C4244: аргумент: преобразование "wint_t" в "char", возможна потеря данных
+  Sannikova_Tables.vcxproj -> I:\Oleg\ProgrammingTools\Sannikova_Tables\Sannikova_Tables\Debug\Sannikova_Tables.exe
+  Sannikova_Tables.vcxproj -> I:\Oleg\ProgrammingTools\Sannikova_Tables\Sannikova_Tables\Debug\Sannikova_Tables.pdb (Full PDB)
